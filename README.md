@@ -17,7 +17,7 @@ os recortes públicos para demonstrar escopo, decisões de arquitetura e resulta
 | 05 | [NetBox / IPAM como IaC](case-studies/05-netbox-ipam-iac.md) | Fonte de verdade de rede versionada |
 
 ## Contato
-- LinkedIn: _adicionar URL do perfil_
+- LinkedIn: [Henrique Ramos Barbosa](https://www.linkedin.com/in/henrique-ramos-barbosa/)
 - GitHub: [@hiquerb](https://github.com/hiquerb)
 
 > Conteúdo sanitizado. Métricas citadas refletem dados reais de produção, sem expor informação
