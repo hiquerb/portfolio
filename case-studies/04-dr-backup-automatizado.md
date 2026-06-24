@@ -18,6 +18,26 @@ Agente mensal orquestrado por pipeline que:
 ## Stack
 Python · boto3 (AWS) · PowerShell (Azure SQL) · Playwright · python-pptx · Azure DevOps Pipelines · Jira REST.
 
+## Arquitetura (diagrama)
+```mermaid
+flowchart LR
+  CRON["Pipeline mensal (Azure DevOps)"] --> AWS["AWS: restaura AMI em instancia nova + sobe servico"]
+  CRON --> AZ["Azure: copia banco SQL + valida (schemas / linhas)"]
+  AWS --> EVID["Evidencia por screenshot (Playwright)"]
+  AZ --> EVID
+  EVID --> REP["Relatorio PowerPoint + narrativa IA"]
+  REP --> JIRA["Jira (anexa evidencia)"]
+  AWS --> CLEAN["Cleanup garantido (try/finally): termina instancia, libera SG, remove snapshots"]
+  AZ --> CLEAN
+```
+
+## Critérios de segurança
+- **Não-destrutivo**: lê da origem e opera em **cópias/instâncias efêmeras**.
+- **Cleanup transacional** (`try/finally`): zero recurso órfão e custo residual.
+- **Evidência carimbada e auditável**: RTO/RPO comprovável.
+- **Menor privilégio** por conta de cloud; segredos fora do código.
+- **Validação de integridade** (schema + contagem de linhas) antes de aprovar.
+
 ## Resultado
 - Validação de recuperação que antes era manual (horas) passou a rodar de forma automática e recorrente, com evidência carimbada.
 - Confiança comprovável em RTO/RPO: o que auditoria e clientes exigem.

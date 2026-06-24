@@ -15,6 +15,23 @@ Centralizar o inventário da infraestrutura multi-cloud em uma plataforma versio
 ## Stack
 Docker · NetBox · PostgreSQL · Python (pynetbox) · Nginx/SSL · Azure DevOps.
 
+## Arquitetura (diagrama)
+```mermaid
+flowchart LR
+  GIT["Git (IaC) + Azure DevOps CI/CD"] --> DEPLOY["Backup pre-deploy, build, migracoes, health checks"]
+  DEPLOY --> NB["NetBox (IPAM/DCIM) + PostgreSQL + Nginx/SSL (Docker Compose)"]
+  CLOUD["Ambiente cloud (VMs / IPs)"] --> SYNC["Sincronizacao Python (pynetbox)"]
+  SYNC --> NB
+  NB --> SOT["Fonte unica de verdade da rede"]
+```
+
+## Critérios de segurança
+- **Fonte única de verdade versionada**: auditoria e rollback.
+- **TLS/SSL** no acesso (Nginx); segregação de rede.
+- **Segredos fora do repositório** (variáveis/cofre).
+- **Backup pré-deploy + health checks**: deploy seguro e repetível.
+- **Acesso por papel (RBAC)** ao NetBox.
+
 ## Resultado
 - Inventário de dezenas de VMs em múltiplas zonas de disponibilidade centralizado e auditável.
 - Redução do esforço manual de manutenção do inventário e base confiável para decisões de rede.

@@ -14,6 +14,35 @@ Automatizar o ciclo de vida completo (joiner/leaver) com **governança e segrega
 ## Stack
 Azure Automation · Microsoft Graph API · PowerShell 7 · Jira Service Management · Power Automate · SharePoint Online.
 
+## Arquitetura (diagrama)
+```mermaid
+flowchart LR
+  subgraph IN["Joiner (onboarding)"]
+    ADM["Registro de admissao"] --> JIRA1["Jira (chamado)"]
+    JIRA1 --> AA["Azure Automation: runbook PowerShell + Managed Identity"]
+    AA --> GRAPH["Microsoft Graph (Entra ID)"]
+    GRAPH --> PROV["UPN + senha forte + gestor + licenca + TAP"]
+    PROV --> FOLHA["Folha de Acessos (PDF)"]
+    FOLHA --> SP["SharePoint (registro)"]
+  end
+  subgraph OUT["Leaver (offboarding)"]
+    PLAN["MS Planner (RH)"] --> JIRA2["Jira + gate humano da TI"]
+    JIRA2 --> REV["Revoga sessoes/MFA, bloqueia conta, remove licencas/grupos"]
+    REV --> DEC{"Cargo?"}
+    DEC -->|demais| DEL["Excluir conta"]
+    DEC -->|lideranca| SHARED["Caixa compartilhada"]
+    REV --> FIS["Sincroniza remocao de acesso fisico (catraca)"]
+  end
+```
+
+## Critérios de segurança
+- **Managed Identity** no runbook: sem segredo em código.
+- **Segregação de funções**: ação destrutiva só após **gate humano da TI**.
+- **Menor privilégio** nos escopos do Microsoft Graph (apenas os necessários).
+- **Trilha de auditoria** nativa (Entra/Jira/SharePoint): evidência para ISO 27001.
+- Offboarding cobre **acesso lógico e físico** (sem acesso residual).
+- Senha forte + TAP; sessões/tokens revogados no desligamento.
+
 ## Resultado
 - Provisionamento padronizado e auditável, eliminando passos manuais e erros de configuração.
 - Offboarding com segregação de funções, reduzindo risco de acesso residual.

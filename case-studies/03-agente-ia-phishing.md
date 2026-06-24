@@ -20,6 +20,26 @@ Segredos em cofre (Key Vault); orçamento de APIs respeitado (dedupe, rate-limit
 ## Stack
 Python · LLM (parecer) · VirusTotal/AbuseIPDB/urlscan.io APIs · Azure DevOps Pipelines · Azure Key Vault · Jira REST.
 
+## Arquitetura (diagrama)
+```mermaid
+flowchart LR
+  RPT["E-mail reportado (.eml)"] --> PIPE["Pipeline (Azure DevOps, runner self-hosted)"]
+  PIPE --> AUTH["Autenticacao: SPF / DKIM / DMARC + DNS"]
+  PIPE --> REP["Reputacao: VirusTotal / AbuseIPDB / urlscan.io / RBL"]
+  AUTH --> SCORE["Veredito heuristico (legitimo / suspeito / malicioso)"]
+  REP --> SCORE
+  SCORE --> IA["Parecer assistido por IA (LLM) + fallback deterministico"]
+  IA --> JIRA["Jira: parecer + recomendacao (NAO encerra: decisao humana)"]
+  KV["Azure Key Vault (segredos)"] -.-> PIPE
+```
+
+## Critérios de segurança
+- **Privacidade by design**: sem upload do conteúdo do e-mail a serviços externos.
+- **Human-in-the-loop**: o agente não encerra o ticket; a decisão é do analista.
+- **Segredos em Key Vault**; execução **dry-run** por padrão.
+- **Rate-limit e dedupe** nas APIs de inteligência de ameaças (orçamento respeitado).
+- **Veredito explicável** (pontuação ponderada) e trilha de auditoria por etapa.
+
 ## Resultado
 - Triagem de segurança mais rápida e padronizada, com parecer técnico pronto para o analista decidir.
 - Privacidade preservada (sem upload de conteúdo do e-mail) e trilha de auditoria por etapa.
