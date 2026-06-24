@@ -1,8 +1,8 @@
-# Estudo de Caso 01 — Plataforma de FinOps (modelo TBM)
+# Estudo de Caso 01: Plataforma de FinOps (modelo TBM)
 *Governança e rateio de custos de TI multi-cloud · estudo de caso anonimizado*
 
 ## Contexto
-Empresa de tecnologia (~490 usuários) com custos de TI dispersos entre cloud (AWS, Azure), licenças (Microsoft 365, Atlassian), telecom, segurança e SaaS — sem visibilidade de quanto cada centro de custo e cada projeto/cliente consumia.
+Empresa de tecnologia (cerca de 490 usuários) com custos de TI dispersos entre cloud (AWS, Azure), licenças (Microsoft 365, Atlassian), telecom, segurança e SaaS: sem visibilidade de quanto cada centro de custo e cada projeto/cliente consumia.
 
 ## Desafio
 Dar transparência ao gasto de cerca de R$ 1 milhão/ano e habilitar redução de custo, com rateio que **batesse exatamente com a fatura** e fosse importável no ERP.

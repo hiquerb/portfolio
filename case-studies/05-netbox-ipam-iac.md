@@ -1,8 +1,8 @@
-# Estudo de Caso 05 — IPAM / Infraestrutura como Código (NetBox)
+# Estudo de Caso 05: IPAM / Infraestrutura como Código (NetBox)
 *Fonte única de verdade para a infraestrutura de rede · estudo de caso anonimizado*
 
 ## Contexto
-Inventário de IPs, VMs e topologia espalhado em planilhas, sem fonte única de verdade — dificultando auditoria, troubleshooting e planejamento.
+Inventário de IPs, VMs e topologia espalhado em planilhas, sem fonte única de verdade: dificultando auditoria, troubleshooting e planejamento.
 
 ## Desafio
 Centralizar o inventário da infraestrutura multi-cloud em uma plataforma versionada, com sincronização automática e implantação repetível.

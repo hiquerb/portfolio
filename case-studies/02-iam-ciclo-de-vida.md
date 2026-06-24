@@ -1,8 +1,8 @@
-# Estudo de Caso 02 — Automação do Ciclo de Vida de Identidade
+# Estudo de Caso 02: Automação do Ciclo de Vida de Identidade
 *Onboarding e offboarding no Microsoft Entra ID · estudo de caso anonimizado*
 
 ## Contexto
-Provisionamento e desprovisionamento de usuários feitos manualmente, com risco de erro, atraso e — no desligamento — de acesso residual (lógico e físico).
+Provisionamento e desprovisionamento de usuários feitos manualmente, com risco de erro, atraso e: no desligamento: de acesso residual (lógico e físico).
 
 ## Desafio
 Automatizar o ciclo de vida completo (joiner/leaver) com **governança e segregação de funções**, garantindo conformidade ISO 27001 e trilha de auditoria.
@@ -17,7 +17,7 @@ Azure Automation · Microsoft Graph API · PowerShell 7 · Jira Service Manageme
 ## Resultado
 - Provisionamento padronizado e auditável, eliminando passos manuais e erros de configuração.
 - Offboarding com segregação de funções, reduzindo risco de acesso residual.
-- Trilha de auditoria nativa — evidência direta para a ISO 27001.
+- Trilha de auditoria nativa: evidência direta para a ISO 27001.
 
 ## Meu papel
 Desenho do fluxo, automação (runbooks e regras), integração entre Graph, Jira, SharePoint e controle de acesso físico, e definição das regras de negócio por categoria de colaborador.

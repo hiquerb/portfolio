@@ -1,8 +1,8 @@
-# Estudo de Caso 03 — Agente de IA para Triagem de Phishing
+# Estudo de Caso 03: Agente de IA para Triagem de Phishing
 *Security Operations assistida por IA, com human-in-the-loop · estudo de caso anonimizado*
 
 ## Contexto
-E-mails suspeitos reportados por colaboradores chegavam à equipe de segurança para triagem manual — processo lento e dependente de analista para cada caso.
+E-mails suspeitos reportados por colaboradores chegavam à equipe de segurança para triagem manual: processo lento e dependente de analista para cada caso.
 
 ## Desafio
 Acelerar a triagem com análise técnica consistente, **sem abrir mão da decisão humana** e **sem expor o conteúdo dos e-mails** a serviços externos (privacidade by design).
@@ -13,7 +13,7 @@ Agente autônomo acionado por pipeline (Azure DevOps, runner self-hosted) que, a
 - checa **reputação** de IP, URLs e hashes de anexo em **VirusTotal, AbuseIPDB, urlscan.io** e RBLs;
 - calcula um **veredito heurístico** (legítimo / suspeito / malicioso) por pontuação ponderada;
 - redige um **parecer técnico assistido por IA (LLM)**, com *fallback* determinístico se a IA estiver indisponível;
-- publica a análise no chamado (Jira) com recomendação ao analista — **sem encerrar o ticket** (decisão é humana).
+- publica a análise no chamado (Jira) com recomendação ao analista: **sem encerrar o ticket** (decisão é humana).
 
 Segredos em cofre (Key Vault); orçamento de APIs respeitado (dedupe, rate-limit); execução *dry-run* por padrão.
 
