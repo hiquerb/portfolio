@@ -34,6 +34,14 @@ flowchart LR
   ACT -->|phishing| HUMAN["Human-in-the-loop: nao encerra"]
 ```
 
+## Avaliação e verificação (o núcleo de qualidade)
+O que separa a frota de um "resumidor de LLM" é a **régua de avaliação ancorada em contexto e frameworks** — não no palpite do modelo:
+- **Firewall/NGFW — calibração por direção de tráfego**: regras `any/any` classificadas pelo sentido (entrada pelo perímetro = **crítico**; saída/interna = **alto**), e inspeção sinalizada **apenas quando o tráfego cruza o perímetro** — reduz ruído sem perder o que importa.
+- **Endpoint/EDR — frameworks de referência**: achados mapeados a **MITRE ATT&CK · CIS · NIST**, com foco nos incidentes **não-bloqueados** (os que exigem ação) e priorização por severidade. Régua validada contra **centenas de incidentes reais**.
+- **Phishing — evidência multi-fonte**: autenticação (SPF/DKIM/DMARC) + reputação em múltiplas bases, com **fontes de baixa confiança que não pontuam** (evitam falso-positivo).
+- **Controle de falso-positivo transversal**: allowlist de hosts de desenvolvimento, regra de "nunca classificar vazio como legítimo" e **veredito explicável** por pontuação ponderada.
+- **Estado longitudinal**: na comparação mês-a-mês, cada item recebe um estado — **sanado / persiste / novo** — dando continuidade auditável entre competências.
+
 ## Critérios de segurança
 - **Segredos em Key Vault**; **menor privilégio** por agente.
 - **Human-in-the-loop no phishing**: o agente recomenda, o analista decide.
