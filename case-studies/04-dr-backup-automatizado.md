@@ -45,3 +45,6 @@ flowchart LR
 
 ## Meu papel
 Arquitetura do agente híbrido, scripts de restauração/validação, captura de evidência, geração do relatório e a disciplina de cleanup garantido.
+
+---
+*Complementa o **monitoramento centralizado** do ambiente (Zabbix/Grafana): o monitoramento previne e alerta; a validação de restauração **prova a recuperação**, fechando o ciclo de confiabilidade.*
