@@ -2,7 +2,7 @@
 *Governança e rateio de custos de TI multi-cloud · estudo de caso anonimizado*
 
 ## Contexto
-Empresa de tecnologia (cerca de 490 usuários) com custos de TI dispersos entre cloud (AWS, Azure), licenças (Microsoft 365, Atlassian), telecom, segurança e SaaS: sem visibilidade de quanto cada centro de custo e cada projeto/cliente consumia.
+Empresa de tecnologia (cerca de 490 usuários) com custos de TI dispersos entre cloud (AWS, Azure), licenças (Microsoft 365, Atlassian), **ferramentas de IA (LLMs)**, telecom, segurança e SaaS: sem visibilidade de quanto cada centro de custo e cada projeto/cliente consumia.
 
 ## Desafio
 Dar transparência ao gasto de cerca de R$ 1 milhão/ano e habilitar redução de custo, com rateio que **batesse exatamente com a fatura** e fosse importável no ERP.
@@ -61,3 +61,6 @@ flowchart LR
 
 ## Meu papel
 Concepção, arquitetura, desenvolvimento e operação contínua da plataforma; definição das regras de rateio com a controladoria; negociação das otimizações de contrato.
+
+---
+*A engenharia de ingestão multi-fornecedor (nuvem, licenças, IA/LLMs, telecom por linha), a normalização num fato canônico e o export padronizado para o ERP com conciliação exata à fatura estão detalhados no [caso 06](06-rateio-multifornecedor-erp.md).*
