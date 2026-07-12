@@ -15,7 +15,7 @@ Agente autônomo acionado por pipeline (Azure DevOps, runner self-hosted) que, a
 - redige um **parecer técnico assistido por IA (LLM)**, com *fallback* determinístico se a IA estiver indisponível;
 - publica a análise no chamado (Jira) com recomendação ao analista: **sem encerrar o ticket** (decisão é humana).
 
-Segredos em cofre (Key Vault); orçamento de APIs respeitado (dedupe, rate-limit); execução *dry-run* por padrão.
+Segredos em cofre (Key Vault); orçamento de APIs respeitado (dedupe, rate-limit); execução *dry-run* por padrão. **Resiliência**: *retry* com *backoff* para indisponibilidade transitória da IA, *fallback* determinístico e *chunking* de parecer longo em múltiplos comentários (respeitando o limite do campo).
 
 ## Stack
 Python · LLM (parecer) · VirusTotal/AbuseIPDB/urlscan.io APIs · Azure DevOps Pipelines · Azure Key Vault · Jira REST.
@@ -47,3 +47,6 @@ flowchart LR
 
 ## Meu papel
 Arquitetura do agente, integração das fontes de inteligência de ameaças, lógica de pontuação, prompt e governança do *human-in-the-loop*.
+
+---
+*Este agente é um de três de uma frota de segurança (phishing, firewall/NGFW e endpoint/EDR) com motor de IA comum, comparação mês-a-mês e automação de ciclo de vida de chamados — detalhada no [caso 07](07-frota-agentes-aiops-seguranca.md).*
