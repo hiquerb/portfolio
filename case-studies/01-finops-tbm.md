@@ -2,10 +2,10 @@
 *Governança e rateio de custos de TI multi-cloud · estudo de caso anonimizado*
 
 ## Contexto
-Empresa de tecnologia (cerca de 490 usuários) com custos de TI dispersos entre cloud (AWS, Azure), licenças (Microsoft 365, Atlassian), **ferramentas de IA (LLMs)**, telecom, segurança e SaaS: sem visibilidade de quanto cada centro de custo e cada projeto/cliente consumia.
+Empresa de tecnologia (cerca de 490 usuários) com custos de TI dispersos entre cloud (AWS, Azure), licenças (Microsoft 365, Atlassian), telecom, segurança e SaaS: sem visibilidade de quanto cada centro de custo e cada projeto/cliente consumia.
 
 ## Desafio
-Dar transparência ao gasto de cerca de R$ 1 milhão/ano e habilitar redução de custo, com rateio que **batesse exatamente com a fatura** e fosse importável no ERP.
+Dar transparência ao gasto de TI multi-cloud e habilitar redução de custo, com rateio que **batesse exatamente com a fatura** e fosse importável no ERP.
 
 ## Solução / Arquitetura
 Plataforma própria seguindo o framework **TBM (Technology Business Management)** em 3 camadas (Financeiro → Recursos de TI → Centros de Custo):
@@ -54,13 +54,13 @@ flowchart LR
 - **CI/CD com staging e revisão** antes de produção (pipeline versionado).
 - **Trilha de auditoria** das regras de rateio e do histórico mensal (versionamento).
 
+## Diferencial vs. ferramentas de mercado
+Ferramentas de FinOps de mercado costumam cobrir apenas **uma** dimensão do gasto — só cloud, OU só licenças de software, OU só serviços. Esta plataforma consolida **todas** as fontes (cloud AWS/Azure, licenças Microsoft 365/Atlassian, telecom, segurança, SaaS e cartão corporativo) em um único modelo. Além disso, dois pontos raros nas soluções de prateleira: (1) **coleta automática** dos custos direto das APIs de cada fonte, sem exportação manual; e (2) **rateio (chargeback) automático entre áreas, centros de custo e clientes**, conciliado ao centavo com a fatura e exportável para o ERP. Não é um painel de visualização de custo — é **governança de custo de ponta a ponta, do dado bruto ao lançamento contábil**.
+
 ## Resultado
-- **19% de redução** de custo de TI recorrente (≈ R$ 180–230 mil/ano) via racionalização de ferramentas redundantes e renegociação de contratos.
-- Rateio mensal de **49 centros de custo** e **42 projetos** com conciliação automática.
+- **19% de redução** de custo de TI recorrente via racionalização de ferramentas redundantes e renegociação de contratos.
+- Rateio mensal de **dezenas de centros de custo e projetos** com conciliação automática.
 - Visibilidade que transformou decisões de custo de reativas em orientadas a dado.
 
 ## Meu papel
 Concepção, arquitetura, desenvolvimento e operação contínua da plataforma; definição das regras de rateio com a controladoria; negociação das otimizações de contrato.
-
----
-*A engenharia de ingestão multi-fornecedor (nuvem, licenças, IA/LLMs, telecom por linha), a normalização num fato canônico e o export padronizado para o ERP com conciliação exata à fatura estão detalhados no [caso 06](06-rateio-multifornecedor-erp.md).*
