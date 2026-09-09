@@ -10,8 +10,8 @@ Profissional de TI com quase 20 anos de carreira, atuando na gestão de infraest
 ## 🎯 Em números (atuação real, anonimizada)
 - **custos de TI multi-cloud** sob modelo de rateio FinOps (dezenas de centros de custo e projetos): base sobre a qual entreguei **19% de redução** recorrente.
 - **ISO/IEC 27001:2022**: minha área foi o escopo certificado (1ª certificação + auditorias de manutenção).
-- **517 entregas** rastreadas em 5 anos liderando equipe de infraestrutura em 8 domínios de governança.
-- Ambiente: **cerca de 490 usuários**, multi-cloud AWS + Azure, identidade Entra ID.
+- **centenas de entregas** rastreadas em 5 anos liderando equipe de infraestrutura em 8 domínios de governança.
+- Ambiente: **várias centenas de usuários**, multi-cloud AWS + Azure, identidade Entra ID.
 
 ---
 
